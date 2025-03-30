@@ -33,7 +33,7 @@ public class SearchTests extends TestBase {
         });
         step("Открыть первую статью", () ->
                 $$(id("page_list_item_title")).get(0).click());
-        step("Открыть первую статью", () ->
+        step("Проверить статью", () ->
                 $(id("org.wikipedia.alpha:id/view_wiki_error_text"))
                         .shouldHave(text("An error occurred")));
     }
