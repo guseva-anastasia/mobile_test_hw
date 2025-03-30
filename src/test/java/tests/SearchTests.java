@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,7 @@ public class SearchTests extends TestBase {
 
     @Tag("Android")
     @Test
+    @DisplayName("Проверка поиска статей")
     void successfulAndroidSearchTest() {
         step("Поиск статей по заданному запросу", () -> {
             $(accessibilityId("Search Wikipedia")).click();
@@ -26,6 +28,7 @@ public class SearchTests extends TestBase {
 
     @Tag("Android")
     @Test
+    @DisplayName("Проверка открытия статьи")
     void successfulAndroidOpenArticle() {
         step("Поиск статей по заданному запросу", () -> {
             $(accessibilityId("Search Wikipedia")).click();
@@ -40,7 +43,8 @@ public class SearchTests extends TestBase {
 
     @Tag("IOS")
     @Test
-    void successfulIosSearchTest() {
+    @DisplayName("Проверка поля ввода")
+    void successfulIosInputInTextArea() {
         step("Нажать на кнопку Text", () -> {
             $(accessibilityId("Text")).click();
         });
