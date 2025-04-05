@@ -15,16 +15,13 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchTests extends TestBase {
 
-    @Tag("Android")
+    @Tag("Browserstack")
     @Test
     @DisplayName("Проверка поиска статей")
-    void successfulAndroidSearchTest() {
-        step("close onboarding ", () -> {
-            $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click();
-        });
+    void successfulBrowserstackSearchTest() {
         step("Поиск статей по заданному запросу", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
+            $(id("org.wikipedia.alpha:id/search_container")).click();
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Git");
         });
         step("Проверка того, что найден контент по запросу", () ->
                 $$(id("org.wikipedia.alpha:id/page_list_item_title"))
@@ -35,9 +32,6 @@ public class SearchTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия статьи")
     void successfulBrowserstackOpenArticle() {
-//        step("close onboarding ", () -> {
-//            $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click();
-//        });
         step("Поиск статей по заданному запросу", () -> {
             $(id("org.wikipedia.alpha:id/search_container")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Git");
