@@ -1,8 +1,9 @@
 package config;
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "classpath:config/${env}.properties"
+        "classpath:config/browserstack.properties"
 })
 public interface BrowserstackConfig extends Config {
     String browserstackUser();

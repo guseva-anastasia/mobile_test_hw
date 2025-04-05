@@ -3,26 +3,25 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.BrowserstackConfig;
-import drivers.BrowserstackDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
+import static helpers.RunHelper.runHelper;
 
 public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = BrowserstackDriver.class.getName();
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+        Configuration.browser = runHelper().getDriverClass().getName();
         Configuration.browserSize = null;
-        Configuration.timeout = 30000;
+        Configuration.timeout = 10000;
     }
 
     @BeforeEach
