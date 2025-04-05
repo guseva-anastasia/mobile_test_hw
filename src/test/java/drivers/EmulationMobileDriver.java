@@ -20,29 +20,26 @@ public class EmulationMobileDriver implements WebDriverProvider {
     private static final String DEVICE_NAME = EMULATION_CONFIG.deviceName();
     private static final String PLATFORM_NAME = EMULATION_CONFIG.platformName();
     private static final String VERSION = EMULATION_CONFIG.version();
-    private static final String LOCALE = EMULATION_CONFIG.locale();
-    private static final String LANGUAGE = EMULATION_CONFIG.language();
     private static final String APP_PACKAGE = EMULATION_CONFIG.appPackage();
     private static final String APP_ACTIVITY = EMULATION_CONFIG.appActivity();
     private static final String APP = EMULATION_CONFIG.app();
     private static final String URL = EMULATION_CONFIG.remoteURL();
+    private static final String AUTOMATION_NAME = EMULATION_CONFIG.automationName();
 
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         DesiredCapabilities caps = new DesiredCapabilities();
 
-        caps.setCapability("deviceName", DEVICE_NAME);
-        caps.setCapability("platformName", PLATFORM_NAME);
-        caps.setCapability("version", VERSION);
+        caps.setCapability("appium:deviceName", DEVICE_NAME);
+        caps.setCapability("appium:platformName", PLATFORM_NAME);
+        caps.setCapability("appium:version", VERSION);
 
-        caps.setCapability("locale", LOCALE);
-        caps.setCapability("language", LANGUAGE);
+        caps.setCapability("appium:appPackage", APP_PACKAGE);
+        caps.setCapability("appium:appActivity", APP_ACTIVITY);
+        caps.setCapability("appium:automationName", AUTOMATION_NAME);
 
-        caps.setCapability("appPackage", APP_PACKAGE);
-        caps.setCapability("appActivity", APP_ACTIVITY);
-
-        caps.setCapability("app",
+        caps.setCapability("appium:app",
                 getAbsolutePath(APP));
 
         try {

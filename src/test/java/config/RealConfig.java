@@ -3,8 +3,6 @@ package config;
 import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "system:properties",
-        "file:/tmp/realDevice.properties",
         "classpath:config/realDevice.properties"
 })
 public interface RealConfig extends Config {

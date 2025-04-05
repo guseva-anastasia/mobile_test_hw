@@ -4,8 +4,6 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "system:properties",
-        "file:/tmp/emulation.properties",
         "classpath:config/emulation.properties"
 })
 public interface EmulationConfig extends Config{
@@ -18,4 +16,5 @@ public interface EmulationConfig extends Config{
     String appActivity();
     String app();
     String remoteURL();
+    String automationName();
 }

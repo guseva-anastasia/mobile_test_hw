@@ -36,9 +36,6 @@ public class RealMobileDriver implements WebDriverProvider {
         options.setCapability("platformName", PLATFORM_NAME);
         options.setCapability("version", VERSION);
 
-        options.setCapability("locale", LOCALE);
-        options.setCapability("language", LANGUAGE);
-
         options.setCapability("appPackage", APP_PACKAGE);
         options.setCapability("appActivity", APP_ACTIVITY);
 

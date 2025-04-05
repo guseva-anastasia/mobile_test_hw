@@ -17,10 +17,8 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
-        Configuration.browser = runHelper().getDriverClass().getName();
         Configuration.browserSize = null;
+        Configuration.browser = runHelper().getDriverClass().getName();
         Configuration.timeout = 10000;
     }
 
